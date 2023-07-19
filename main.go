@@ -92,6 +92,9 @@ func main() {
 
 	err := godotenv.Load()
 
+	address := "0.0.0.0"
+	port := ":8080"
+
 	if err == nil {
 		apiKey, ok := os.LookupEnv("API_KEY")
 
@@ -99,14 +102,26 @@ func main() {
 			accounts["API_KEY"] = apiKey
 			fmt.Println("API Key: " + apiKey)
 		}
+
+		portEnv, ok := os.LookupEnv("PORT")
+
+		if ok {
+			port = ":" + portEnv
+		}
+
+		addressEnv, ok := os.LookupEnv("ADDRESS")
+
+		if ok {
+			address = addressEnv
+		}
+
 	}
 
 	router.GET("*subdomain", processRequest)
 
-	if err := router.Run(); err != nil {
+	if err := router.Run(address + port); err != nil {
 		panic(err)
 	}
 
 	fmt.Println("Server started")
-
 }

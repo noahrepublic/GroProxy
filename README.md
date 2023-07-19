@@ -19,7 +19,7 @@ Furthermore, you are relying on his server. If his server goes down so does your
 
 - Uses "Gin" a HTTP framework 40 times faster then Martini.
 - Supports API_KEY validation through .env files
-
+- Port setting and IP address through .env files
 # Planned
 
 - Proxy List Support
