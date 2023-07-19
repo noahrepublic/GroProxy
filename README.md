@@ -23,3 +23,4 @@ Furthermore, you are relying on his server. If his server goes down so does your
 # Planned
 
 - Proxy List Support
+- Pre-Configured deployment buttons to known providers
